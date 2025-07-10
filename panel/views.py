@@ -227,6 +227,7 @@ def dashboard_admin_sucursal(request):
     total_medicos = medicos.count()
 
     pacientes = Paciente.objects.filter(id_centro_salud=centro.id)
+    total_pacientes = pacientes.count()
 
     from datetime import date
     def calcular_edad(fecha_nacimiento):
@@ -247,7 +248,8 @@ def dashboard_admin_sucursal(request):
         "medicos": medicos,
         "pacientes": pacientes,
         "insumos": insumos,
-        "total_medicos": total_medicos
+        "total_medicos": total_medicos,
+        "total_pacientes": total_pacientes
     })
 
 @csrf_exempt
